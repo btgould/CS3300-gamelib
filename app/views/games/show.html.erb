@@ -28,7 +28,7 @@
   </ul>
 
   <div class="btn-group" role="group" aria-label="game_show_nav_buttons">
-    <%= button_to 'Edit', edit_game_path(@game), :class => "btn btn-primary" %> |
-    <%= button_to 'Back', games_path, :class => "btn btn-primary" %>
+    <%= link_to 'Edit', edit_game_path(@game), :class => "btn btn-primary" %>
+    <%= link_to 'Back', games_path, :class => "btn btn-primary" %>
   </div>
 </div>

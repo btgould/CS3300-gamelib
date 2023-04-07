@@ -1,35 +1,26 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Games</h1>
+<div class="container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Genre</th>
-      <th>Price</th>
-      <th>Interest</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Games</h1>
 
-  <tbody>
+  <div class="row">
     <% @games.each do |game| %>
-      <tr>
-        <td><%= game.title %></td>
-        <td><%= game.genre %></td>
-        <td><%= game.price %></td>
-        <td><%= game.interest %></td>
-        <td><%= game.description %></td>
-        <td><%= link_to 'Show', game %></td>
-        <td><%= link_to 'Edit', edit_game_path(game) %></td>
-        <td><%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="col-lg-6 section">
+          <h3><%= game.title %></h3>
+          <p>Genre: <%= game.genre %></p>
+          <p>Price: $<%= game.price %></p>
+          <p>Interest Level: <%= game.interest %></p>
+          <p>Description: <%= game.description %></p>
+          <div class="btn-group" role="group" aria-label="game_show_nav_buttons">
+            <%= link_to 'Show', game, :class => "btn btn-primary" %>
+            <%= link_to 'Edit', edit_game_path(game), :class => "btn btn-primary" %>
+            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary" %>
+          </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
 
-<br>
+  <%= link_to 'New Game', new_game_path %>
 
-<%= link_to 'New Game', new_game_path %>
+</div>

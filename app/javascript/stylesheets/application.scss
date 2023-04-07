@@ -53,5 +53,16 @@ $list-group-disabled-color:         $overlay0Alpha;
 $list-group-action-color:           $surface2Alpha;
 
 
+.section {
+    background-color: $baseAlpha;
+    color: $textAlpha;
+
+    border-color: $blueAlpha;
+    border-radius: 10px;
+    border: 3px solid $blueAlpha;
+
+    padding: 5px;
+    margin: 5px;
+}
 
 @import "~bootstrap/scss/bootstrap";
