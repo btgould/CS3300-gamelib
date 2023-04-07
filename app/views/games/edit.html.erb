@@ -1,6 +1,9 @@
+<div class="container section">
 <h1>Editing Game</h1>
 
 <%= render 'form', game: @game %>
 
-<%= link_to 'Show', @game %> |
-<%= link_to 'Back', games_path %>
+<div class="btn-group" role="group" aria-label="game_edit_nav_buttons">
+<%= link_to 'Show', @game, :class => "btn btn-primary" %> 
+<%= link_to 'Back', games_path, :class => "btn btn-primary" %>
+</div>
