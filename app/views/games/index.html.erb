@@ -14,13 +14,17 @@
           <p>Description: <%= game.description %></p>
           <div class="btn-group" role="group" aria-label="game_show_nav_buttons">
             <%= link_to 'Show', game, :class => "btn btn-primary" %>
-            <%= link_to 'Edit', edit_game_path(game), :class => "btn btn-primary" %>
-            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary" %>
+            <% if user_signed_in? %>
+              <%= link_to 'Edit', edit_game_path(game), :class => "btn btn-primary" %>
+              <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary" %>
+            <% end %>
           </div>
       </div>
     <% end %>
   </div>
 
-  <%= link_to 'New Game', new_game_path, :class => "btn btn-secondary" %>
+  <% if user_signed_in? %>
+    <%= link_to 'New Game', new_game_path, :class => "btn btn-secondary" %>
+  <% end %>
 
 </div>
