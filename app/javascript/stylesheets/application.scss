@@ -66,3 +66,8 @@ $list-group-action-color:           $surface2Alpha;
 }
 
 @import "~bootstrap/scss/bootstrap";
+
+body {
+    background-color: $mantleAlpha;
+    color: $textAlpha;
+}
