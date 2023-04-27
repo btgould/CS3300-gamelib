@@ -6,26 +6,35 @@
     <%= @game.title %>
   </h1>
 
-  <ul class="list-group">
-    <li class="list-group-item">
-      <strong>Genre:</strong>
-      <%= @game.genre %>
-    </li>
-    <li class="list-group-item">
-      <strong>Price:</strong>
-      $
-      <%=@game.price %>
-    </li>
-    <li class="list-group-item">
-      <strong>Interest:</strong>
-      <%= @game.interest %>
-      / 10
-    </li>
-    <li class="list-group-item">
-      <strong>Description:</strong>
-      <%= @game.description %>
-    </li>
-  </ul>
+  <div class="row section">
+    <div class="col-3">
+      <% if @game.image.attached? %>
+        <%= image_tag @game.image, style: "width: 100%; display: block" %>
+      <% end %>
+    </div>
+    <div class="col-9">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Genre:</strong>
+          <%= @game.genre %>
+        </li>
+        <li class="list-group-item">
+          <strong>Price:</strong>
+          $
+          <%=@game.price %>
+        </li>
+        <li class="list-group-item">
+          <strong>Interest:</strong>
+          <%= @game.interest %>
+          / 10
+        </li>
+        <li class="list-group-item">
+          <strong>Description:</strong>
+          <%= @game.description %>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <div class="btn-group" role="group" aria-label="game_show_nav_buttons">
     <% if user_signed_in? %>
