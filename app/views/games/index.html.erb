@@ -4,24 +4,29 @@
 
   <h1>Games</h1>
 
-  <div class="row">
-    <% @games.each do |game| %>
-      <div class="col-lg-6 section">
-          <h3><%= game.title %></h3>
-          <p>Genre: <%= game.genre %></p>
-          <p>Price: $<%= game.price %></p>
-          <p>Interest Level: <%= game.interest %></p>
-          <p>Description: <%= game.description %></p>
-          <div class="btn-group" role="group" aria-label="game_show_nav_buttons">
-            <%= link_to 'Show', game, :class => "btn btn-primary" %>
-            <% if user_signed_in? %>
-              <%= link_to 'Edit', edit_game_path(game), :class => "btn btn-primary" %>
-              <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary" %>
-            <% end %>
-          </div>
+  <% @games.each do |game| %>
+    <div class="row section">
+      <h3><%= game.title %></h3>
+      <div class="col-3">
+        <% if game.image.attached? %>
+          <%= image_tag game.image, style: "width: 250px; display: block" %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+      <div class="col-lg-6">
+        <p>Genre: <%= game.genre %></p>
+        <p>Price: $<%= game.price %></p>
+        <p>Interest Level: <%= game.interest %></p>
+        <p>Description: <%= game.description %></p>
+        <div class="btn-group" role="group" aria-label="game_show_nav_buttons">
+          <%= link_to 'Show', game, :class => "btn btn-primary" %>
+          <% if user_signed_in? %>
+            <%= link_to 'Edit', edit_game_path(game), :class => "btn btn-primary" %>
+            <%= link_to 'Destroy', game, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
 
   <% if user_signed_in? %>
     <%= link_to 'New Game', new_game_path, :class => "btn btn-secondary" %>
